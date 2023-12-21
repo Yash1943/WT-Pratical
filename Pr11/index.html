@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>File Upload</title>
+    <link rel="stylesheet" type="text/css" href="./styles.css" />
+  </head>
+  <body>
+    <h2>Upload an Image</h2>
+    <form action="upload.php" method="post" enctype="multipart/form-data">
+      <label for="fileToUpload" class="custom-file-upload">
+        Select an image file (.gif, .jpeg, or .png):
+      </label>
+      <input type="file" name="fileToUpload" id="fileToUpload" />
+      <input type="submit" value="Upload Image" name="submit" />
+    </form>
+  </body>
+</html>

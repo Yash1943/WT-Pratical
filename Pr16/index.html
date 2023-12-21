@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Registration Form</title>
+    <style>
+        body{
+            background-color: aqua;
+
+        }
+    </style>
+    <script>
+      function validateName() {
+        var name = document.getElementById("name").value;
+        var namePattern = /^[A-Za-z]+$/;
+
+        if (!namePattern.test(name)) {
+          document.getElementById("nameHint").innerHTML =
+            "Name should contain only alphabetic characters.";
+        } else {
+          document.getElementById("nameHint").innerHTML = "";
+        }
+      }
+
+      function validateMobile() {
+        var mobile = document.getElementById("mobile").value;
+        var mobilePattern = /^[0-9]{10}$/;
+
+        if (!mobilePattern.test(mobile)) {
+          document.getElementById("mobileHint").innerHTML =
+            "Mobile number should have exactly 10 digits.";
+        } else {
+          document.getElementById("mobileHint").innerHTML = "";
+        }
+      }
+
+      function validateEmail() {
+        var email = document.getElementById("email").value;
+        var emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
+
+        if (!emailPattern.test(email)) {
+          document.getElementById("emailHint").innerHTML =
+            "Enter a valid email address.";
+        } else {
+          document.getElementById("emailHint").innerHTML = "";
+        }
+      }
+    </script>
+  </head>
+  <body align="center">
+    <h1>Registration Form</h1>
+    <form>
+      <label for="name">Name:</label>
+      <input
+        type="text"
+        id="name"
+        onmouseover="document.getElementById('nameHint').innerHTML = 'Name should contain only alphabetic characters.'"
+        onmouseout="document.getElementById('nameHint').innerHTML = ''"
+        onkeyup="validateName()"
+        required
+      />
+      <span id="nameHint" style="color: red"></span><br /><br />
+
+      <label for="mobile">Mobile Number:</label>
+      <input
+        type="text"
+        id="mobile"
+        onmouseover="document.getElementById('mobileHint').innerHTML = 'Mobile number should have exactly 10 digits.'"
+        onmouseout="document.getElementById('mobileHint').innerHTML = ''"
+        onkeyup="validateMobile()"
+        required
+      />
+      <span id="mobileHint" style="color: red"></span><br /><br />
+
+      <label for="email">Email:</label>
+      <input
+        type="text"
+        id="email"
+        onmouseover="document.getElementById('emailHint').innerHTML = 'Enter a valid email address.'"
+        onmouseout="document.getElementById('emailHint').innerHTML = ''"
+        onkeyup="validateEmail()"
+        required
+      />
+      <span id="emailHint" style="color: red"></span><br /><br />
+
+      <input type="submit" value="Submit" style="background-color: rgb(63, 143, 63)" />
+    </form>
+  </body>
+</html>

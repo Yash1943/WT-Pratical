@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>JavaScript Form</title>
+    <link rel="stylesheet" href="style.css" />
+    <script>
+      function showMessage() {
+        alert("You Clicked Me");
+      }
+
+      function checkOddEven() {
+        var number = parseInt(document.getElementById("number").value);
+        var result = document.getElementById("result");
+
+        if (isNaN(number)) {
+          result.innerHTML = "Please enter a valid number.";
+        } else {
+          result.innerHTML = number % 2 === 0 ? "Even" : "Odd";
+        }
+      }
+
+      function performOperation() {
+        var num1 = parseFloat(document.getElementById("num1").value);
+        var num2 = parseFloat(document.getElementById("num2").value);
+        var operation = document.querySelector(
+          'input[name="operation"]:checked'
+        ).value;
+        var result = document.getElementById("operationResult");
+
+        if (isNaN(num1) || isNaN(num2)) {
+          result.innerHTML = "Please enter valid numbers.";
+        } else {
+          switch (operation) {
+            case "add":
+              result.innerHTML = num1 + num2;
+              break;
+            case "subtract":
+              result.innerHTML = num1 - num2;
+              break;
+            case "multiply":
+              result.innerHTML = num1 * num2;
+              break;
+            case "divide":
+              if (num2 === 0) {
+                result.innerHTML = "Division by zero is not allowed.";
+              } else {
+                result.innerHTML = num1 / num2;
+              }
+              break;
+            default:
+              result.innerHTML = "Invalid operation.";
+              break;
+          }
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <h1>JavaScript Form</h1>
+
+    <button onclick="showMessage()" style="background-color: green">
+      Click Me
+    </button>
+    <p id="result"></p>
+
+    <h2>Check Odd/Even</h2>
+    <label for="number">Enter an Integer: </label>
+    <input type="text" id="number" />
+    <button onclick="checkOddEven()" style="background-color: green">
+      Check
+    </button>
+    <p id="result"></p>
+
+    <h2>Arithmetic Operations</h2>
+    <label for="num1">First Number: </label>
+    <input type="text" id="num1" /><br /><br />
+
+    <label for="num2">Second Number: </label>
+    <input type="text" id="num2" /><br />
+
+    <label>Choose an operation:</label><br />
+    <input type="radio" name="operation" value="add" /> Addition<br />
+    <input type="radio" name="operation" value="subtract" /> Subtraction<br />
+    <input type="radio" name="operation" value="multiply" />
+    Multiplication<br />
+    <input type="radio" name="operation" value="divide" /> Division<br />
+
+    <button onclick="performOperation()" style="background-color: green">
+      Calculate
+    </button>
+    <p id="operationResult"></p>
+  </body>
+</html>

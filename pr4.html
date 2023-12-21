@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Feedback Form</title>
+  </head>
+  <body style="background-color: aquamarine;">
+    <h1>Feedback Form</h1>
+
+    <form action="submit_feedback.php" method="post">
+      <label for="name">Name:</label>
+      <input type="text" id="name" name="name" required /><br /><br />
+
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email" required /><br /><br />
+
+      <label for="feedback">Feedback:</label>
+      <textarea
+        id="feedback"
+        name="feedback"
+        rows="4"
+        cols="50"
+        required
+      ></textarea
+      ><br /><br />
+
+      <input type="submit" value="Submit" style="background-color: rgb(52, 148, 52); color:aliceblue" />
+    </form>
+  </body>
+</html>
